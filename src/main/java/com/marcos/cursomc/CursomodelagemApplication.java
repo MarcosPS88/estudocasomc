@@ -23,6 +23,8 @@ public class CursomodelagemApplication implements CommandLineRunner {
 		
 	public static void main(String[] args) {
 		SpringApplication.run(CursomodelagemApplication.class, args);
+		
+		
 	}
 
 	@Override
@@ -37,12 +39,14 @@ public class CursomodelagemApplication implements CommandLineRunner {
 		Produto p3 = new Produto("Mouse", 80.00);
 		
 		cat1.getProdutos().addAll(Arrays.asList(p1, p2, p3));
-		cat2.setProdutos(p2);
+		cat2.getProdutos().add(p2);
 		
 		p1.getCategoria().addAll(Arrays.asList(cat1));
 		p2.getCategoria().addAll(Arrays.asList(cat1, cat2));
-		p3.setCategoria(cat1);
+		p3.getCategoria().add(cat1);
 		
 		produtoRepository.saveAll(Arrays.asList(p1, p2, p3));
+		
+				
 	}
 }
