@@ -10,4 +10,6 @@ public class CursomodelagemApplication {
 		SpringApplication.run(CursomodelagemApplication.class, args);
 	}
 
+	
+	
 }
