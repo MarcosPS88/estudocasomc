@@ -13,6 +13,7 @@ import com.marcos.cursomc.domain.Cidade;
 import com.marcos.cursomc.domain.Cliente;
 import com.marcos.cursomc.domain.Endereco;
 import com.marcos.cursomc.domain.Estado;
+import com.marcos.cursomc.domain.ItemPedido;
 import com.marcos.cursomc.domain.PagamentoComBoleto;
 import com.marcos.cursomc.domain.PagamentoComCartao;
 import com.marcos.cursomc.domain.Pedido;
@@ -24,6 +25,7 @@ import com.marcos.cursomc.repositories.CidadeRepository;
 import com.marcos.cursomc.repositories.ClienteRepository;
 import com.marcos.cursomc.repositories.EnderecoRepository;
 import com.marcos.cursomc.repositories.EstadoRepository;
+import com.marcos.cursomc.repositories.ItemPedidoRepository;
 import com.marcos.cursomc.repositories.PagamentoRepository;
 import com.marcos.cursomc.repositories.PedidoRepository;
 import com.marcos.cursomc.repositories.ProdutoRepository;
@@ -47,6 +49,8 @@ public class CursomodelagemApplication implements CommandLineRunner {
 	private PedidoRepository pedidoRepository;
 	@Autowired
 	private PagamentoRepository pagamentoRepository;
+	@Autowired
+	private ItemPedidoRepository itempedidoRepository;
 	
 		
 	public static void main(String[] args) {
@@ -68,9 +72,9 @@ public class CursomodelagemApplication implements CommandLineRunner {
 		cat1.getProdutos().addAll(Arrays.asList(p1, p2, p3));
 		cat2.getProdutos().add(p2);
 		
-		p1.getCategoria().addAll(Arrays.asList(cat1));
-		p2.getCategoria().addAll(Arrays.asList(cat1, cat2));
-		p3.getCategoria().add(cat1);
+		p1.getCategorias().addAll(Arrays.asList(cat1));
+		p2.getCategorias().addAll(Arrays.asList(cat1, cat2));
+		p3.getCategorias().add(cat1);
 		
 		produtoRepository.saveAll(Arrays.asList(p1, p2, p3));
 		
@@ -121,7 +125,19 @@ public class CursomodelagemApplication implements CommandLineRunner {
 		pedidoRepository.saveAll(Arrays.asList(ped1, ped2));
 		pagamentoRepository.saveAll(Arrays.asList(pagto1, pagto2));
 		
+		ItemPedido i1 = new ItemPedido(p1, ped1, 0.00, 1, 2000.00);		
+		ItemPedido i2 = new ItemPedido(p3, ped1, 0.00, 2, 80.00);		
+		ItemPedido i3 = new ItemPedido(p2, ped2, 100.00, 1, 800.00);
+		
+		ped1.getItens().addAll(Arrays.asList(i1, i3));
+		ped2.getItens().addAll(Arrays.asList(i2));
+		
+		p1.getItens().addAll(Arrays.asList(i1));
+		p2.getItens().addAll(Arrays.asList(i3));
+		p3.getItens().addAll(Arrays.asList(i2));
+		
 				
+		itempedidoRepository.saveAll(Arrays.asList(i1, i2, i3));
 					
 	}
 }

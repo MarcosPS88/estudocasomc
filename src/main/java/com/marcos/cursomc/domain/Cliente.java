@@ -1,7 +1,6 @@
 package com.marcos.cursomc.domain;
 
 import java.io.Serializable;
-
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -16,11 +15,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.marcos.cursomc.domain.enums.TipoCliente;
 
-@JsonIdentityInfo( generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 @Entity
 public class Cliente implements Serializable {
 	private static final long serialVersionUID = 1L;
