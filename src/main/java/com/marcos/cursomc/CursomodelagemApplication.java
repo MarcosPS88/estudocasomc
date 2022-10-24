@@ -15,7 +15,6 @@ import com.marcos.cursomc.repositories.CategoriaRepository;
 import com.marcos.cursomc.repositories.CidadeRepository;
 import com.marcos.cursomc.repositories.EstadoRepository;
 import com.marcos.cursomc.repositories.ProdutoRepository;
-import com.sun.tools.javac.code.Attribute.Array;
 
 @SpringBootApplication
 public class CursomodelagemApplication implements CommandLineRunner {
