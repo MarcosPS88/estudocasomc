@@ -52,7 +52,7 @@ public class Produto implements Serializable {
 		return lista;
 	}
 	
-	@JsonIgnore
+	
 	public List<Categoria> getCategorias() {
 		return categorias;
 	}

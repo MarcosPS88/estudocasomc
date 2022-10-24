@@ -15,7 +15,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 public class Pedido {
@@ -23,6 +23,8 @@ public class Pedido {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
+	@JsonFormat(pattern = "dd/MM/yyyy hh:mm")
 	private Date instante;
 	
 	@ManyToOne
@@ -82,7 +84,6 @@ public class Pedido {
 		this.instante = instante;
 	}
 	
-	@JsonIgnore
 	public Cliente getCliente() {
 		return cliente;
 	}
