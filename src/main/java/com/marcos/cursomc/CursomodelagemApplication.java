@@ -16,8 +16,8 @@ import com.marcos.cursomc.domain.Produto;
 import com.marcos.cursomc.domain.enums.TipoCliente;
 import com.marcos.cursomc.repositories.CategoriaRepository;
 import com.marcos.cursomc.repositories.CidadeRepository;
-import com.marcos.cursomc.repositories.ClienteRepository2;
-import com.marcos.cursomc.repositories.EnderecoRepository2;
+import com.marcos.cursomc.repositories.ClienteRepository;
+import com.marcos.cursomc.repositories.EnderecoRepository;
 import com.marcos.cursomc.repositories.EstadoRepository;
 import com.marcos.cursomc.repositories.ProdutoRepository;
 
@@ -33,9 +33,9 @@ public class CursomodelagemApplication implements CommandLineRunner {
 	@Autowired
 	private CidadeRepository cidadeRepository;
 	@Autowired
-	private ClienteRepository2 clienteRepository;
+	private ClienteRepository clienteRepository;
 	@Autowired
-	private EnderecoRepository2 enderecoRepository;
+	private EnderecoRepository enderecoRepository;
 	
 		
 	public static void main(String[] args) {
